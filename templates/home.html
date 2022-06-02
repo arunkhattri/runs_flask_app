@@ -5,10 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content=
     "width=device-width, initial-scale=1.0">
+    {% if title %}
+        <title>Running App - {{ title }}</title>
+    {% else %}
     <title>Home</title>
+    {% endif %}
 </head>
 <body>
     <h1>Running Records</h1>
     <p>All the running data of AKK</p>
+    {% for run in runs %}
+        <h2>{{ run.date }}</h2>
+        <p>{{ run.km }} in {{ run.time }}</p>
+    {% endfor %}
 </body>
 </html>
